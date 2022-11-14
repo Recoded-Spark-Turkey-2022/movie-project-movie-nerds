@@ -192,7 +192,7 @@ console.log(filterPopular)
 //up coming
 const ucoming = document.getElementById("upComing")
 const upComing = async () => {
-const url = constructUrl(`movie/top_rated`);
+const url = constructUrl(`movie/upcoming`);
 const res = await fetch(url);
 const data = await res.json();
 renderMovie(data)
