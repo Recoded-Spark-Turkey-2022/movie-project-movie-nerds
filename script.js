@@ -4,6 +4,11 @@ const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 const PROFILE_BASE_URL = "http://image.tmdb.org/t/p/w185";
 const BACKDROP_BASE_URL = "http://image.tmdb.org/t/p/w780";
 const CONTAINER = document.querySelector(".container");
+const home = document.getElementById("home")
+const genersNav = document.getElementById("genres")
+const actors = document.getElementById("actors")
+const searchInput = document.getElementById("search")
+
 
 // Don't touch this function please
 const autorun = async () => {
@@ -31,12 +36,61 @@ const fetchMovies = async () => {
   return res.json();
 };
 
+
+
+
 // Don't touch this function please. This function is to fetch one movie.
 const fetchMovie = async (movieId) => {
   const url = constructUrl(`movie/${movieId}`);
   const res = await fetch(url);
   return res.json();
 };
+
+
+
+// //NOUR fetch releaseDates
+// const releaseDates = async (movieId) => {
+//   const url = constructUrl(`movie/${movieId}/release_dates`);
+//   const res = await fetch(url);
+//   return res.json();
+// };
+
+
+// //NOUR  fetch toprated
+// const topRated= async () => {
+//   const url = constructUrl(`movie/top_rated`);
+//   const res = await fetch(url);
+//   return res.json();
+// };
+
+// //NOUR fetch toprated
+// const upComing= async () => {
+//   const url = constructUrl(`movie/upcoming`);
+//   const res = await fetch(url);
+//   return res.json();
+// };
+
+
+
+//NOUR fetch actors
+const fetchActors = async () => {
+  const url = constructUrl(`person/popular`);
+  const res = await fetch(url);
+  const data = await res.json()
+  return data.results
+}
+
+//NOUR fetch one actor 
+const fetchActor = async (actorId) => {
+  const url = constructUrl(`person/${actorId}`);
+  const res = await fetch(url);
+  const data = await res.json()
+  return data.results
+}
+
+
+  
+
 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovies = (movies) => {
@@ -45,7 +99,7 @@ const renderMovies = (movies) => {
     movieDiv.innerHTML = `
         <img src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${
       movie.title
-    } poster">
+    } poster" >
         <h3>${movie.title}</h3>`;
     movieDiv.addEventListener("click", () => {
       movieDetails(movie);
@@ -53,6 +107,8 @@ const renderMovies = (movies) => {
     CONTAINER.appendChild(movieDiv);
   });
 };
+
+
 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovie = (movie) => {
@@ -78,4 +134,83 @@ const renderMovie = (movie) => {
     </div>`;
 };
 
+
+const renderfilter = (movies) => {
+  movies.map((movie) => {
+    const movieDiv = document.createElement("div");
+    movieDiv.innerHTML = `
+        <img src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${
+      movie.title
+    } poster" >
+        <h3>${movie.title}</h3>`;
+    movieDiv.addEventListener("click", () => {
+      movieDetails(movie);
+    });
+    CONTAINER.appendChild(movieDiv);
+  });
+};
+
+
 document.addEventListener("DOMContentLoaded", autorun);
+
+
+// NOUR filtering 
+document.getElementById("filter").addEventListener("click", function() {
+  alert("Hello World!");
+// popular
+const popularmovies = document.getElementById("popularmovies")
+const filterPopular = async () => {
+  const url = constructUrl(`movie/popular`);
+  const res = await fetch(url);
+  const data = await res.json();
+  renderMovies(data.results);
+  popularmovies.addEventListener("click", filterPopular)
+}
+console.log(filterPopular)
+
+  //by relase date
+  const rdate = document.getElementById("RelaseDate")
+  const relasedate = async () => {
+ const url = constructUrl(`movie/latest`);
+ const res = await fetch(url);
+ const data = await res.json();
+ renderMovie(data)
+ rdate.addEventListener("click", relasedate)
+}
+
+
+   //by toprated
+  const trated = document.getElementById("topRated")
+  const toprated = async () => {
+ const url = constructUrl(`movie/top_rated`);
+ const res = await fetch(url);
+ const data = await res.json();
+ renderMovie(data)
+ trated.addEventListener("click", toprated)
+}
+
+//up coming
+const ucoming = document.getElementById("upComing")
+const upComing = async () => {
+const url = constructUrl(`movie/top_rated`);
+const res = await fetch(url);
+const data = await res.json();
+renderMovie(data)
+ucoming.addEventListener("click", upComing)
+}
+});
+
+
+
+
+
+
+
+
+
+// NOUR homepage refresh function 
+function refreshPage(){
+  window.location.reload();
+} 
+
+

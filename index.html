@@ -10,8 +10,90 @@
 </head>
 
 <body>
-    <div class="container">
+  <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id = generes>
+        <a class="navbar-brand" href="#"> 
+          <img src="https://www.iconpacks.net/icons/1/free-movie-icon-850-thumb.png" class=" logo"  alt="movie" width="100px" onClick="refreshPage()" >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link"  href="#" onClick="refreshPage()">Home <span class="sr-only"></span></a>
+            </li>
+
+            <li class="nav-item dropdown " id="genres">
+                <a class="nav-link dropdown-toggle navbarsections" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Genres
+                  </a>
+              </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="filter" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Filter
+              </a>
+            
+              <div class="dropdown-menu" id="filter" aria-labelledby="navbarDropdown">
+                <a id="Popular" class="dropdown-item" href="#">Popular</a>
+                <a id="RelaseDate" class="dropdown-item" href="#">Relase Date</a>
+                <a id="topRated" href="#">Top rated</a>
+                <a id="nowPlaying" href="#">Now playing</a>
+                <a id="UpComing" href="#">Up Coming</a>
+              </div>
+              
+            </li>
+            <li class="nav-item navbarsections">
+              <a class="nav-link" id="about">About</a>
+            </li>
+          </ul>
+          
+
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+
+          
+        </div>
+      </nav>
+
+     
+    <div class="container" id="container">
     </div>
+
+
+<!-- github accounts -->
+    <footer id="footer" class=" text-center">
+<a href="https://github.com/NourMaleh">
+<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"  width="2% height="12% >
+</a>  
+NOUR MALEH   
+  <a href="https://github.com/NourMaleh">
+  <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"  width="2% height="12% >
+  </a>  
+  Mohammad Saeed Alsaiyed  
+  
+    <a href="https://github.com/Saeed-Alsaiyed">
+    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"  width="2% height="12% >
+    </a>  
+    Enes Buyukcelebi 
+    
+      <a href="https://github.com/esbenes">
+      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"  width="2% height="12% >
+      </a>  
+      Sara Youseef  
+
+    </section>
+  <!-- copyright -->
+    <section class="text-center">
+     © 2022 Copyright: movie-nerds team
+
+    </section>
+      </footer>
     <script type="text/javascript" src="script.js"></script>
 </body>
 
