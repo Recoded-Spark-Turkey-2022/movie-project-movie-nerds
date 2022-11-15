@@ -156,16 +156,25 @@ document.addEventListener("DOMContentLoaded", autorun);
 
 // NOUR filtering 
 document.getElementById("filter").addEventListener("click", function() {
-  alert("Hello World!");
 // popular
 const popularmovies = document.getElementById("popularmovies")
 const filterPopular = async () => {
   const url = constructUrl(`movie/popular`);
   const res = await fetch(url);
   const data = await res.json();
+  console.log(data)
   renderMovies(data.results);
   popularmovies.addEventListener("click", filterPopular)
+  popularmovies.innerHTML = `
+  <img src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${
+movie.title
+} poster" >
+  <h3>${movie.title}</h3>`;
 }
+
+
+
+
 console.log(filterPopular)
 
   //by relase date
@@ -179,6 +188,8 @@ console.log(filterPopular)
 }
 
 
+
+
    //by toprated
   const trated = document.getElementById("topRated")
   const toprated = async () => {
@@ -188,6 +199,8 @@ console.log(filterPopular)
  renderMovie(data)
  trated.addEventListener("click", toprated)
 }
+
+
 
 //up coming
 const ucoming = document.getElementById("upComing")
@@ -213,4 +226,9 @@ function refreshPage(){
   window.location.reload();
 } 
 
-
+function goBackAndRefresh() {
+  window.history.go(-1);
+  setTimeout(() => {
+    location.reload();
+  }, 0);
+}
