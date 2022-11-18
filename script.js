@@ -128,9 +128,9 @@ searchInput.addEventListener("input", (e) => {
     data.results.forEach(result => {
       if (result.media_type === "movie") {
         renderMovies(data.results)
-      } /* else if () {
-      } */
-
+      }else if (result.media_type == " " ){
+        renderMovies(movies);
+      }
     })  
   }
 )
