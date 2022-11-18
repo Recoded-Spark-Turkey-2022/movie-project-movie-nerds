@@ -18,16 +18,20 @@
     <div class="container-fluid">
       <img src="https://www.iconpacks.net/icons/1/free-movie-icon-850-thumb.png" class=" logo"  alt="movie" width="100px" onClick="refreshPage()" >
       
-      
+      <!-- Home -->
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" onClick="refreshPage()" aria-current="page" href="#">Home</a>
           </li>
+          <!-- actors -->
           <li class="nav-item">
             <a class="nav-link" href="#">Actors</a>
           </li>
+
+          
+<!-- filter -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="filter" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Filter
@@ -41,56 +45,71 @@
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Geners</a>
+
+<!-- geners -->
+
+          <li class="nav-item dropdown" >
+            <a class="nav-link dropdown-toggle" href="#" id="filter" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Geners
+            </a>
+            
+            <ul class="dropdown-menu" id="genres" aria-labelledby="navbarDropdown" >
+            </ul>
           </li>
 
-
-          <li class="nav-item">
+<!-- about -->
+          <li class="nav-item" >
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+        <form class="d-flex" id ="search" role="search">
+          <input class="form-control me-2"  id="searchinput" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="searchbtn">Search</button>
         </form>
       </div>
     </div>
   </nav>
 
+    
+
     <div class="container" id="container">
+   
+        </div>
+      </div>
+        </div>
+      </div>
     </div>
 
 
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
 <!-- github accounts -->
-    <footer id="footer" class=" text-center">
-<a href="https://github.com/NourMaleh">
-<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"  width="2% height="12% >
-</a>  
-NOUR MALEH   
+<footer id="footer" class="text-center">
   <a href="https://github.com/NourMaleh">
   <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"  width="2% height="12% >
   </a>  
-  Mohammad Saeed Alsaiyed  
-  
-    <a href="https://github.com/Saeed-Alsaiyed">
+  NOUR MALEH   
+    <a href="https://github.com/NourMaleh">
     <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"  width="2% height="12% >
     </a>  
-    Enes Buyukcelebi 
+    Mohammad Saeed Alsaiyed  
     
-      <a href="https://github.com/esbenes">
+      <a href="https://github.com/Saeed-Alsaiyed">
       <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"  width="2% height="12% >
       </a>  
-      Sara Youseef  
-
-    </section>
-  <!-- copyright -->
-    <section class="text-center">
-     © 2022 Copyright: movie-nerds team
-
-    </section>
-      </footer>
-    <script type="text/javascript" src="script.js"></script>
-</body>
-
+      Enes Buyukcelebi 
+      
+        <a href="https://github.com/esbenes">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"  width="2% height="12% >
+        </a>  
+        Sara Youseef  
+  
+      </section>
+    <!-- copyright -->
+      <section class="text-center">
+       © 2022 Copyright: movie-nerds team
+  
+      </section>
+        </footer>
 </html>
