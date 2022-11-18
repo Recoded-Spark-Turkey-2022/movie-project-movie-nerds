@@ -56,6 +56,33 @@ const fetchMovie = async (movieId) => {
   return res.json();
 };
 
+// This function is to fetch actors.
+const fetchActors = async () => {
+  const url = constructUrl(`person/popular`);
+  const res = await fetch(url);
+  const data = await res.json();
+  return data.results;};
+
+// This function is to fetch actor.
+const fetchActor = async (person_id) => {
+  const url = constructUrl(`person/${person_id}`);
+  const res = await fetch(url);
+  const data = await res.json();
+  return data};
+
+//fetch trailer:
+const fetchTrailer = async (movieId) => {
+  const url = constructUrl(`movie/${movieId}/videos`);
+  const res = await fetch(url);
+  const data = await res.json();
+  return data.results;
+};
+const fetchImages = async (movieId) => {
+  const url = constructUrl(`movie/${movieId}/images`);
+  const res = await fetch(url);
+  const data = await res.json();
+  return data.results;
+};
 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovies = (movies) => {
@@ -99,7 +126,7 @@ const renderMovie = (movie) => {
 document.addEventListener("DOMContentLoaded", autorun);
 
 //Saeed
-//Saerch box
+//Saerch box section//
 const searchInput = document.getElementById("search-input");
 
 let isKeyPressed = { 
@@ -135,6 +162,17 @@ searchInput.addEventListener("input", (e) => {
   }
 )
 })
+
+//--Actor section--//
+const actorsBtn=document.getElementById("actors")
+
+const actorrun= async () => {
+  const actors= await fetchActors();
+  // console.log(actors)
+  renderActors(actors)}
+//fetch actors 
+
+
 
 // NOUR filtering 
 // popular
