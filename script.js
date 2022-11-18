@@ -62,8 +62,8 @@ const renderMovies = (movies) => {
   movies.map((movie) => {
     const movieDiv = document.createElement("div");
     movieDiv.className = "card"
-    movieDiv.innerHTML = `<div id = "card" class="card text-bg-dark" ">
-    <img "img-fluid rounded-start" class="card text-bg-dark" id="card-img-top" src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${movie.title} poster" style=" object-fit: cover;">
+    movieDiv.innerHTML = `<div id = "card" class="card text-bg-dark movieDiv" ">
+    <img "img-fluid rounded-start" class="card text-bg-dark movieImage" id="card-img-top" src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${movie.title} poster" style=" object-fit: cover;">
      <div class="card-body text-center" id = "card-body"> 
        <h5 class="card-title">${movie.title}</h5>
         <h6 class="card-text > " <span> Rating </span> <br> ${movie.vote_average} </br> </h5>
@@ -178,7 +178,7 @@ const renderActors = (actors) => {
     // console.log(actor)
     const actorDiv = document.createElement("div");
     actorDiv.innerHTML = `
-        <img src="${PROFILE_BASE_URL + actor.profile_path}" alt="${
+        <img class="actorsImages" src="${PROFILE_BASE_URL + actor.profile_path}" alt="${
       actor.name
     } poster">
         <h3>${actor.name}</h3>`;
