@@ -172,16 +172,24 @@ const fetchActor = async (person_id) => {
 
 const renderActors = (actors) => {
   CONTAINER.innerHTML = "";
-  const actorsContainer = document.createElement("div")
+  
 
   actors.map((actor) => {
     // console.log(actor)
+   const actorsContainer = document.createElement("div")
+    
     const actorDiv = document.createElement("div");
-    actorDiv.innerHTML = `
-        <img class="actorsImages" src="${PROFILE_BASE_URL + actor.profile_path}" alt="${
+     actorDiv.className = "card"
+    actorDiv.innerHTML = `   
+  <div class="card text-bg-dark ">
+    <img class="card-img-top actorsImages "  src="${PROFILE_BASE_URL + actor.profile_path}" alt="${
       actor.name
-    } poster">
-        <h3>${actor.name}</h3>`;
+    } poster" style=" object-fit: cover; ">
+    <div class="card-body">
+      <h5 class="card-title">${actor.name}</h5>
+    </div>
+  </div>`;
+
 
     actorDiv.addEventListener("click", () => {
       actorDetails(actor);
@@ -195,26 +203,25 @@ const renderActors = (actors) => {
 const renderActor = (actor) => {
   CONTAINER.innerHTML = "";
   CONTAINER.innerHTML = `
-    <div class="row">
-        <div class="col-md-4">
-             <img id="actor-backdrop" src=${
+    <div class="card mb-3">
+         <img id="actor-backdrop" src=${
                PROFILE_BASE_URL + actor.profile_path
-             }>
+             } class= "card=img-top" text-bg-dark" alt="..." >
         </div>
-        <div class="col-md-8">
-            <h2 id="actor-name">${actor.name}</h2>
-            <p id="actor-gender"><b>Gender:</b> ${
+        <div class="card-body">
+            <h2 class="card-title" id="actor-name">${actor.name}</h2>
+            <p id="actor-gender" class="card-title"><b>Gender:</b> ${
               actor.gender == 1 ? "famale" : "male"
             }</p>
-            <p id="actor-popularity"><b>Popularity:</b> ${actor.popularity}</p>
-            <p id="actor-birthday"><b>Birthday:</b> ${actor.birthday}</p>
-            <p id="actor-deathday"><b>Deathday:</b> ${actor.deathday}</p>
+            <p id="actor-popularity" class="card-title"><b>Popularity:</b> ${actor.popularity}</p>
+            <p id="actor-birthday" class="card-title"><b>Birthday:</b> ${actor.birthday}</p>
+            <p id="actor-deathday" class="card-title"><b>Deathday:</b> ${actor.deathday}</p>
             <h4 id="actor-bio">${actor.biography}</h4>
         </div>
         <div>
           <h4  id="moviesBy" style="padding:1rem;"> Related Movies:</h4> 
           <div class="row justify-content-center" id="knownFor"></div>
-        </div>
+        </div> 
     </div>`;
 
     if (actor.deathday === null) {
