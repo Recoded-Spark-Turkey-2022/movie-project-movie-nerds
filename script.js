@@ -4,6 +4,7 @@ const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 const PROFILE_BASE_URL = "http://image.tmdb.org/t/p/w185";
 const BACKDROP_BASE_URL = "http://image.tmdb.org/t/p/w780";
 const API_KEY = 'api_key=NTQyMDAzOTE4NzY5ZGY1MDA4M2ExM2M0MTViYmM2MDI=';
+const aboutUsBtn = document.querySelector(".aboutUs-btn");
 const searchUrl = (search) => {
   return `${TMDB_BASE_URL}/search/multi?api_key=${atob('NTQyMDAzOTE4NzY5ZGY1MDA4M2ExM2M0MTViYmM2MDI=')}&query=${search}`;
 }
@@ -307,6 +308,56 @@ for (let genre in genres) {
     moviefiltering(genres[genre]['id'])
   })}}
  genresnavbar();
+
+ //Sara About us
+function aboutUs() {
+  CONTAINER.innerHTML = `
+
+  <div class="welcome-message">
+  <i class="ghost-icon fa-solid fa-ghost"></i>
+    <h2>Welcome</h2>
+    <i class="ghost-icon fa-solid fa-ghost"></i>
+  </div>
+  <div class="information">
+      <div class="text-container">
+          <p class="mt-5 fw-bold">
+            This project created by Movie Nerds
+          </p>
+       
+         </div>
+      <ul class="team-list">
+        <li><h3>Movie Nerds</h3></li>
+        <li>
+            <span>Sara Youssef </span>
+           
+   
+        </li>
+        <li>
+            <span> Mohammad Saeed Alsaiyed  </span>
+            
+      
+          </i>
+          
+        <li>
+            <span> NOUR MALEH </span>
+            
+        </li>
+        <li>
+            <span> Enes Buyukcelebi </span>
+         
+          
+        </li>
+      </ul>
+  </div>
+</div>`
+}
+
+aboutUsBtn.addEventListener("click", () => {
+  CONTAINER.innerHTML = "";
+  aboutUs();
+});
+document.addEventListener("DOMContentLoaded", autorun);
+// About us end
 
 
 
