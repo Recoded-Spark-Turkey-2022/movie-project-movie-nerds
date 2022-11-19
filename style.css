@@ -2,10 +2,54 @@
     width: 100%;
 }
 
-.container {
-    padding-top: 32px;
+
+html, body {
+    height:fit-content;
+    width: fit-content;    
+        background-color: rgba(255, 247, 247, 0.432);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 }
 
-#actors {
-    margin: 24px 16px 0 0;
+
+.container {
+ 
+    width: 70%;
+    height: 100%;
+    padding-top: 32px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-gap: 2%;
+    justify-content: center ;
+
+
+} 
+
+
+footer{
+    margin-top: 15%;
+background-color: white;
 }
+
+.actorsImages {
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: solid rgb(55, 21, 21);
+   
+}
+.actorsImages:hover {
+    transform: scale(1);
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.movieDiv:hover .movieImage {
+    transform: scale(1.2);
+    margin: 0 30px;
+    cursor: pointer;
+}
+
+
+
